@@ -1,0 +1,6 @@
+framework module Pods_MigraineKiller {
+  umbrella header "Pods-MigraineKiller-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,641 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C11B9B11F117F9600164AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE7153C1F0D91410041D292 /* AppDelegate.swift */; };
+		1C93DF981F0ED2EE000903E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C93DF971F0ED2EE000903E5 /* GoogleService-Info.plist */; };
+		1CB09FD81F22B2CC007B0D24 /* UserLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB09FD71F22B2CC007B0D24 /* UserLog.swift */; };
+		1CB09FDB1F22B3A8007B0D24 /* UserDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB09FDA1F22B3A8007B0D24 /* UserDataExtension.swift */; };
+		1CB09FDD1F22C1A3007B0D24 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB09FDC1F22C1A3007B0D24 /* UserData.swift */; };
+		1CC34B9D1F158DAD00A277C1 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC34B991F158DAD00A277C1 /* AccountViewController.swift */; };
+		1CC34B9E1F158DAD00A277C1 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC34B9A1F158DAD00A277C1 /* HealthKitManager.swift */; };
+		1CC34B9F1F158DAD00A277C1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC34B9B1F158DAD00A277C1 /* ProfileViewController.swift */; };
+		1CC34BA01F158DAD00A277C1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC34B9C1F158DAD00A277C1 /* SettingViewController.swift */; };
+		1CE7153D1F0D91410041D292 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE7153C1F0D91410041D292 /* AppDelegate.swift */; };
+		1CE715421F0D91410041D292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CE715401F0D91410041D292 /* Main.storyboard */; };
+		1CE715441F0D91410041D292 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE715431F0D91410041D292 /* Assets.xcassets */; };
+		1CE715471F0D91410041D292 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CE715451F0D91410041D292 /* LaunchScreen.storyboard */; };
+		1CE715521F0D91410041D292 /* MigraineKillerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE715511F0D91410041D292 /* MigraineKillerTests.swift */; };
+		1CEFACC31F0EF120008B65E2 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CEFACC21F0EF120008B65E2 /* HealthKit.framework */; };
+		1CFB95D91F102BC6005C6826 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFB95D81F102BC6005C6826 /* LoginViewController.swift */; };
+		1CFB95DD1F105970005C6826 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFB95DC1F105970005C6826 /* LogViewController.swift */; };
+		1CFB95DF1F105B24005C6826 /* LogInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFB95DE1F105B24005C6826 /* LogInfoViewController.swift */; };
+		27E95D11B04B2D2C262EDCD7 /* Pods_MigraineKiller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 645CC9FEF6D97D2789D530B7 /* Pods_MigraineKiller.framework */; };
+		390D0B44962157CD11EA0C65 /* Pods_MigraineKillerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C8D0C0736EF93D9A2BB585 /* Pods_MigraineKillerTests.framework */; };
+		476848A01F22790100D3ADCC /* defaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4768489F1F22790100D3ADCC /* defaultsKeys.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1CE7154E1F0D91410041D292 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CE715311F0D91410041D292 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CE715381F0D91410041D292;
+			remoteInfo = MigraineKiller;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1ADD59375448CBAC4ACF1763 /* Pods-MigraineKillerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MigraineKillerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MigraineKillerTests/Pods-MigraineKillerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C93DF971F0ED2EE000903E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "MigraineKiller/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1CB09FD71F22B2CC007B0D24 /* UserLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLog.swift; sourceTree = "<group>"; };
+		1CB09FDA1F22B3A8007B0D24 /* UserDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataExtension.swift; sourceTree = "<group>"; };
+		1CB09FDC1F22C1A3007B0D24 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		1CC34B991F158DAD00A277C1 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		1CC34B9A1F158DAD00A277C1 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		1CC34B9B1F158DAD00A277C1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1CC34B9C1F158DAD00A277C1 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		1CE715391F0D91410041D292 /* MigraineKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MigraineKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CE7153C1F0D91410041D292 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1CE715411F0D91410041D292 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1CE715431F0D91410041D292 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CE715461F0D91410041D292 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1CE715481F0D91410041D292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CE7154D1F0D91410041D292 /* MigraineKillerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MigraineKillerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CE715511F0D91410041D292 /* MigraineKillerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigraineKillerTests.swift; sourceTree = "<group>"; };
+		1CE715531F0D91410041D292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CEFACC11F0EF120008B65E2 /* MigraineKiller.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MigraineKiller.entitlements; sourceTree = "<group>"; };
+		1CEFACC21F0EF120008B65E2 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		1CFB95D81F102BC6005C6826 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1CFB95DC1F105970005C6826 /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+		1CFB95DE1F105B24005C6826 /* LogInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInfoViewController.swift; sourceTree = "<group>"; };
+		4768489F1F22790100D3ADCC /* defaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = defaultsKeys.swift; sourceTree = "<group>"; };
+		645CC9FEF6D97D2789D530B7 /* Pods_MigraineKiller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MigraineKiller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81BFFA0DDBE6B5EE467CC52F /* Pods-MigraineKiller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MigraineKiller.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MigraineKiller/Pods-MigraineKiller.debug.xcconfig"; sourceTree = "<group>"; };
+		88C8D0C0736EF93D9A2BB585 /* Pods_MigraineKillerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MigraineKillerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		969D59A9AB80E916774E07EC /* Pods-MigraineKiller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MigraineKiller.release.xcconfig"; path = "Pods/Target Support Files/Pods-MigraineKiller/Pods-MigraineKiller.release.xcconfig"; sourceTree = "<group>"; };
+		F6AECCEE04B55DA019D15A2C /* Pods-MigraineKillerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MigraineKillerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MigraineKillerTests/Pods-MigraineKillerTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CE715361F0D91410041D292 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27E95D11B04B2D2C262EDCD7 /* Pods_MigraineKiller.framework in Frameworks */,
+				1CEFACC31F0EF120008B65E2 /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CE7154A1F0D91410041D292 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				390D0B44962157CD11EA0C65 /* Pods_MigraineKillerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CB09FD61F22ADAF007B0D24 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1CB09FDC1F22C1A3007B0D24 /* UserData.swift */,
+				1CB09FD71F22B2CC007B0D24 /* UserLog.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1CB09FD91F22B354007B0D24 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1CB09FDA1F22B3A8007B0D24 /* UserDataExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		1CE715301F0D91410041D292 = {
+			isa = PBXGroup;
+			children = (
+				1C93DF971F0ED2EE000903E5 /* GoogleService-Info.plist */,
+				1CE7153B1F0D91410041D292 /* MigraineKiller */,
+				1CE715501F0D91410041D292 /* MigraineKillerTests */,
+				1CE7153A1F0D91410041D292 /* Products */,
+				5471BF0FAF07D2C2F9373FB7 /* Pods */,
+				410DE8F572244DDC2130B3F8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1CE7153A1F0D91410041D292 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CE715391F0D91410041D292 /* MigraineKiller.app */,
+				1CE7154D1F0D91410041D292 /* MigraineKillerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CE7153B1F0D91410041D292 /* MigraineKiller */ = {
+			isa = PBXGroup;
+			children = (
+				1CEFACC11F0EF120008B65E2 /* MigraineKiller.entitlements */,
+				1CE7153C1F0D91410041D292 /* AppDelegate.swift */,
+				1CB09FD61F22ADAF007B0D24 /* Models */,
+				1CE715401F0D91410041D292 /* Main.storyboard */,
+				1CE715431F0D91410041D292 /* Assets.xcassets */,
+				1CE715451F0D91410041D292 /* LaunchScreen.storyboard */,
+				1CE715481F0D91410041D292 /* Info.plist */,
+				1CFB95D81F102BC6005C6826 /* LoginViewController.swift */,
+				1CC34B991F158DAD00A277C1 /* AccountViewController.swift */,
+				1CB09FD91F22B354007B0D24 /* Extensions */,
+				1CC34B9A1F158DAD00A277C1 /* HealthKitManager.swift */,
+				1CC34B9B1F158DAD00A277C1 /* ProfileViewController.swift */,
+				1CC34B9C1F158DAD00A277C1 /* SettingViewController.swift */,
+				1CFB95DC1F105970005C6826 /* LogViewController.swift */,
+				1CFB95DE1F105B24005C6826 /* LogInfoViewController.swift */,
+				4768489F1F22790100D3ADCC /* defaultsKeys.swift */,
+			);
+			path = MigraineKiller;
+			sourceTree = "<group>";
+		};
+		1CE715501F0D91410041D292 /* MigraineKillerTests */ = {
+			isa = PBXGroup;
+			children = (
+				1CE715511F0D91410041D292 /* MigraineKillerTests.swift */,
+				1CE715531F0D91410041D292 /* Info.plist */,
+			);
+			path = MigraineKillerTests;
+			sourceTree = "<group>";
+		};
+		410DE8F572244DDC2130B3F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CEFACC21F0EF120008B65E2 /* HealthKit.framework */,
+				645CC9FEF6D97D2789D530B7 /* Pods_MigraineKiller.framework */,
+				88C8D0C0736EF93D9A2BB585 /* Pods_MigraineKillerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5471BF0FAF07D2C2F9373FB7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81BFFA0DDBE6B5EE467CC52F /* Pods-MigraineKiller.debug.xcconfig */,
+				969D59A9AB80E916774E07EC /* Pods-MigraineKiller.release.xcconfig */,
+				1ADD59375448CBAC4ACF1763 /* Pods-MigraineKillerTests.debug.xcconfig */,
+				F6AECCEE04B55DA019D15A2C /* Pods-MigraineKillerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CE715381F0D91410041D292 /* MigraineKiller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CE715561F0D91410041D292 /* Build configuration list for PBXNativeTarget "MigraineKiller" */;
+			buildPhases = (
+				6CC86DF14E544961ABCF57E1 /* [CP] Check Pods Manifest.lock */,
+				1CE715351F0D91410041D292 /* Sources */,
+				1CE715361F0D91410041D292 /* Frameworks */,
+				1CE715371F0D91410041D292 /* Resources */,
+				4BD71509068B53FD71A7AB7C /* [CP] Embed Pods Frameworks */,
+				7E8F66E6BF163F61EA5A7A23 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MigraineKiller;
+			productName = MigraineKiller;
+			productReference = 1CE715391F0D91410041D292 /* MigraineKiller.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1CE7154C1F0D91410041D292 /* MigraineKillerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CE715591F0D91410041D292 /* Build configuration list for PBXNativeTarget "MigraineKillerTests" */;
+			buildPhases = (
+				CFD6CD3306E08FB99DEC8F4A /* [CP] Check Pods Manifest.lock */,
+				1CE715491F0D91410041D292 /* Sources */,
+				1CE7154A1F0D91410041D292 /* Frameworks */,
+				1CE7154B1F0D91410041D292 /* Resources */,
+				3D480A1E8410520999BFEFEF /* [CP] Embed Pods Frameworks */,
+				99E3637CF4BA33CA529B028F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CE7154F1F0D91410041D292 /* PBXTargetDependency */,
+			);
+			name = MigraineKillerTests;
+			productName = MigraineKillerTests;
+			productReference = 1CE7154D1F0D91410041D292 /* MigraineKillerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CE715311F0D91410041D292 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Shelly;
+				TargetAttributes = {
+					1CE715381F0D91410041D292 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = JJB4VS3G6S;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
+					};
+					1CE7154C1F0D91410041D292 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = N2T3CBHJB4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1CE715381F0D91410041D292;
+					};
+				};
+			};
+			buildConfigurationList = 1CE715341F0D91410041D292 /* Build configuration list for PBXProject "MigraineKiller" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1CE715301F0D91410041D292;
+			productRefGroup = 1CE7153A1F0D91410041D292 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CE715381F0D91410041D292 /* MigraineKiller */,
+				1CE7154C1F0D91410041D292 /* MigraineKillerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CE715371F0D91410041D292 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CE715471F0D91410041D292 /* LaunchScreen.storyboard in Resources */,
+				1C93DF981F0ED2EE000903E5 /* GoogleService-Info.plist in Resources */,
+				1CE715441F0D91410041D292 /* Assets.xcassets in Resources */,
+				1CE715421F0D91410041D292 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CE7154B1F0D91410041D292 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D480A1E8410520999BFEFEF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MigraineKillerTests/Pods-MigraineKillerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BD71509068B53FD71A7AB7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MigraineKiller/Pods-MigraineKiller-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CC86DF14E544961ABCF57E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7E8F66E6BF163F61EA5A7A23 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MigraineKiller/Pods-MigraineKiller-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99E3637CF4BA33CA529B028F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MigraineKillerTests/Pods-MigraineKillerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFD6CD3306E08FB99DEC8F4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CE715351F0D91410041D292 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CFB95D91F102BC6005C6826 /* LoginViewController.swift in Sources */,
+				476848A01F22790100D3ADCC /* defaultsKeys.swift in Sources */,
+				1CC34B9D1F158DAD00A277C1 /* AccountViewController.swift in Sources */,
+				1CB09FD81F22B2CC007B0D24 /* UserLog.swift in Sources */,
+				1CC34B9E1F158DAD00A277C1 /* HealthKitManager.swift in Sources */,
+				1CC34BA01F158DAD00A277C1 /* SettingViewController.swift in Sources */,
+				1CB09FDD1F22C1A3007B0D24 /* UserData.swift in Sources */,
+				1CB09FDB1F22B3A8007B0D24 /* UserDataExtension.swift in Sources */,
+				1CFB95DD1F105970005C6826 /* LogViewController.swift in Sources */,
+				1CC34B9F1F158DAD00A277C1 /* ProfileViewController.swift in Sources */,
+				1CFB95DF1F105B24005C6826 /* LogInfoViewController.swift in Sources */,
+				1CE7153D1F0D91410041D292 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CE715491F0D91410041D292 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C11B9B11F117F9600164AD1 /* AppDelegate.swift in Sources */,
+				1CE715521F0D91410041D292 /* MigraineKillerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1CE7154F1F0D91410041D292 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1CE715381F0D91410041D292 /* MigraineKiller */;
+			targetProxy = 1CE7154E1F0D91410041D292 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1CE715401F0D91410041D292 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CE715411F0D91410041D292 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1CE715451F0D91410041D292 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CE715461F0D91410041D292 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1CE715541F0D91410041D292 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1CE715551F0D91410041D292 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1CE715571F0D91410041D292 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81BFFA0DDBE6B5EE467CC52F /* Pods-MigraineKiller.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MigraineKiller/MigraineKiller.entitlements;
+				DEVELOPMENT_TEAM = JJB4VS3G6S;
+				INFOPLIST_FILE = MigraineKiller/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ShellyHan.MigraineKiller;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1CE715581F0D91410041D292 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 969D59A9AB80E916774E07EC /* Pods-MigraineKiller.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MigraineKiller/MigraineKiller.entitlements;
+				DEVELOPMENT_TEAM = JJB4VS3G6S;
+				INFOPLIST_FILE = MigraineKiller/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ShellyHan.MigraineKiller;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		1CE7155A1F0D91410041D292 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ADD59375448CBAC4ACF1763 /* Pods-MigraineKillerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = N2T3CBHJB4;
+				INFOPLIST_FILE = MigraineKillerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MigraineKillerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MigraineKiller.app/MigraineKiller";
+			};
+			name = Debug;
+		};
+		1CE7155B1F0D91410041D292 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6AECCEE04B55DA019D15A2C /* Pods-MigraineKillerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = N2T3CBHJB4;
+				INFOPLIST_FILE = MigraineKillerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MigraineKillerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MigraineKiller.app/MigraineKiller";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CE715341F0D91410041D292 /* Build configuration list for PBXProject "MigraineKiller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CE715541F0D91410041D292 /* Debug */,
+				1CE715551F0D91410041D292 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CE715561F0D91410041D292 /* Build configuration list for PBXNativeTarget "MigraineKiller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CE715571F0D91410041D292 /* Debug */,
+				1CE715581F0D91410041D292 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CE715591F0D91410041D292 /* Build configuration list for PBXNativeTarget "MigraineKillerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CE7155A1F0D91410041D292 /* Debug */,
+				1CE7155B1F0D91410041D292 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CE715311F0D91410041D292 /* Project object */;
+}
