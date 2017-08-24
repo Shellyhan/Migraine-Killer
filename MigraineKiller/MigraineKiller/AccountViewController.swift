@@ -13,7 +13,7 @@ import HealthKit
 class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var avatarView: UIView!
-
+    
     
     @IBAction func LogoutButton(_ sender: Any) {
         handleLogout()
@@ -33,9 +33,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
-   // private let myArray: NSArray = ["Email", "Sex", "Date Of Birth", "Profile","Setting"]
+    
+    // private let myArray: NSArray = ["Email", "Sex", "Date Of Birth", "Profile","Setting"]
     private var myTableView: UITableView!
     
     override func viewDidLoad() {
@@ -83,7 +83,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         sender.view.backgroundColor = UIColor.darkGray
         let defaults = UserDefaults.standard
         defaults.set(imageName, forKey: defaultsKeys.profileImage)
-
+        
         avatarView.isHidden = true
         reload()
     }
@@ -116,7 +116,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         var x: CGFloat = 0
         var y: CGFloat = 0
         while i < 10 {
-
+            
             if (CGFloat(j)*100 <= UIScreen.main.bounds.size.width) {
                 x = CGFloat(j-2)*100
                 y = CGFloat(k-2)*110
@@ -126,7 +126,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 y = CGFloat(k-1)*110
                 k += 1
             }
-
+            
             let avatarOption = UIImage(named: "avatar\(i).png")
             
             
@@ -156,7 +156,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             i += 1
             j += 1
             
-
+            
             // set up for profile image options to be picked
             let tapGestureRecognizerForOptions = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
             
@@ -166,10 +166,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
     }
-
-   
-
-
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             if indexPath.row == 0 {
@@ -179,7 +179,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.storyboard!.instantiateViewController(withIdentifier: "Setting")
                 self.performSegue(withIdentifier: "SettingSegue", sender: self)
             }
-        
+            
         }
         
     }
@@ -234,28 +234,20 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.frame = CGRect(x: 0, y: 0, width: myTableView.frame.width, height: 100)
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.textColor = UIColor.lightGray
-
-        
-        
-        let valueCell = dequeued as! UITableViewCell
-        valueCell.backgroundColor=UIColor.lightGray
-        valueCell.frame = CGRect(x: 0, y: 0, width: myTableView.frame.width, height: 100)
-        valueCell.backgroundColor = UIColor.clear
-        valueCell.textLabel?.textColor = UIColor.lightGray
-        valueCell.textLabel?.textAlignment = .right
-        
         
         if indexPath.section == 0 {
             cell.isUserInteractionEnabled = false
             if indexPath.row == 0 {
                 cell.textLabel?.text = "Email"
             } else if indexPath.row == 1 {
-                cell.textLabel?.text = "Sex"
+                let profile = healthManager.readProfile()
+                cell.textLabel?.text = "Sex - \(getBiologicalSex(biologicalSex: profile.biologicalsex?.biologicalSex))"
             } else if indexPath.row == 2 {
-                cell.textLabel?.text = "Date Of Birth"
                 let dateOfBirth = healthManager.readDateOfBirth()
-                valueCell.textLabel?.text = getDateOfBirth(dateOfBirth: dateOfBirth)
-
+                cell.textLabel?.text = "Date Of Birth - \(getDateOfBirth(dateOfBirth: dateOfBirth))"
+                
+                
+                
             }
         } else if indexPath.section == 1 {
             let bgColorView = UIView()
@@ -264,7 +256,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             if indexPath.row == 0 {
                 cell.textLabel?.text = "Profile"
             } else if indexPath.row == 1 {
-                cell.textLabel?.text = "Setting"
+                cell.textLabel?.text = "About"
             }
             
         }
@@ -272,7 +264,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-
+    
     
     let healthManager:HealthKitManager = HealthKitManager()
     let healthStore = HKHealthStore()
@@ -295,10 +287,30 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-
-
+    func getBiologicalSex(biologicalSex:HKBiologicalSex?)->String
+    {
+        var biologicalSexText = "Unknown"
+        
+        if  biologicalSex != nil {
+            
+            switch( biologicalSex! )
+            {
+            case .female:
+                biologicalSexText = "Female"
+            case .male:
+                biologicalSexText = "Male"
+            default:
+                break;
+            }
+            
+        }
+        return biologicalSexText;
+    }
     
- 
-  
+    
+    
+    
+    
+    
     
 }

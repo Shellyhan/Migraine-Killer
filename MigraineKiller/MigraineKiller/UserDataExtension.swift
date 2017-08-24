@@ -10,17 +10,27 @@ import Foundation
 import UIKit
 import HealthKit
 
-extension ProfileViewController {
+extension ResultViewController {
     
     //for dynamic data:
-    func getSleepAnalysis(length: Int) {
+    func getSleepAnalysis(length: Int, doneStuffBlock: (Double) -> ()) -> Double {
+        
+        var duration:Double = 0
+        
         // define the object type
         if let sleepType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) {
             // use a sortDescriptor to get the recent data first
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
             
+            let date = NSDate() as Date
+            let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+            let newDate = cal.date(byAdding: .hour, value: length, to: date)
+            
+            let predicate = HKQuery.predicateForSamples(withStart: newDate, end: NSDate() as Date, options: .strictStartDate)
+            
+            
             // create uery with a block completion to execute
-            let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: length, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+            let query = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: 100, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
                 
                 if error != nil {
                     print("sleep analysis is nil")
@@ -30,15 +40,18 @@ extension ProfileViewController {
                     // print
                     for item in result {
                         if let sample = item as? HKCategorySample {
+                            
                             if (sample.value == HKCategoryValueSleepAnalysis.asleep.rawValue) {
-                                
-                                let duration = self.calender.dateComponents([.minute], from: sample.startDate, to: sample.endDate)
-                                
-                                print("Healthkit sleep: \(sample.startDate) \(sample.endDate) - duration is: \(duration.minute!)")
-//                                self.sleepArray.append()
+                                duration += sample.endDate.timeIntervalSince(sample.startDate)
                             }
+                            
                         }
+                        
                     }
+                    duration = duration/60
+                    print("\(duration)------\(length)")
+                    self.resultDataArray.append(duration)
+                    
                 }
             }
             // execute our query
@@ -46,105 +59,190 @@ extension ProfileViewController {
         } else {
             fatalError("Something went wrong retrieving sleep analysis")
         }
+
+        doneStuffBlock(duration)
+        return duration
     }
     
-    func getDistanceWalkingRunning(length: Int) {
-        if let type = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning) {
-            let date = NSDate() as Date
-            let cal = Calendar(identifier: Calendar.Identifier.gregorian)
-            let newDate = cal.date(byAdding: .month, value: length, to: date)
-            
-            let predicate = HKQuery.predicateForSamples(withStart: newDate, end: NSDate() as Date, options: .strictStartDate)
-            
-            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) -> Void in
-                
-                if error != nil {
-                    print("something went wrong")
-                } else if let quantity = statistics?.sumQuantity() {
-                    let valueInMiles = quantity.doubleValue(for: HKUnit.mile())
-                    let valueInKM = quantity.doubleValue(for: HKUnit.meter())/1000.0
-                    print ("Walking \(valueInMiles) miles")
-                    print ("Walking \(valueInKM) meters")
-                }
-            }
-            healthStore.execute(query)
-        } else {
-            fatalError("Something went wrong retrieving distanceWalkingRunning")
-        }
-    }
     
-    func getThreeDaysTotalStepCount(length: Int) {
-        //  Perform the Query
-        
-        if let type = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount) {
-            let date = NSDate() as Date
-            let cal = Calendar(identifier: Calendar.Identifier.gregorian)
-            let newDate = cal.date(byAdding: .day, value: length, to: date)
-            
-            let predicate = HKQuery.predicateForSamples(withStart: newDate, end: NSDate() as Date, options: .strictStartDate)
-            
-            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) -> Void in
-                
-                if error != nil {
-                    print("something went wrong in step count")
-                } else if let quantity = statistics?.sumQuantity() {
-                    let steps = quantity.doubleValue(for: HKUnit.count())
-                    
-                    print ("Steps =  \(steps) steps")
-                    self.walkArray.append(steps)
-                }
-            }
-            healthStore.execute(query)
-        } else {
-            fatalError("Something went wrong retrieving step count")
-        }
-    }
+//    
+//    //for dynamic data:
+//    func getSleepAnalysis(length: Int) {
+//        // define the object type
+//        if let sleepType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) {
+//            // use a sortDescriptor to get the recent data first
+//            let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+//            
+////            let date = NSDate() as Date
+////            let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+////            let newDate = cal.date(byAdding: .hour, value: length, to: date)
+//            
+//            var totalTime = Int()
+//            
+//            let endDate = Date()
+//            let startDate = NSCalendar.current.date(byAdding: .day, value: length, to: endDate)
+//            
+//            let pred = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
+//            
+//            // create query with a block completion to execute
+//            let query = HKSampleQuery(sampleType: sleepType, predicate: pred, limit: 1, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+//                
+//                if error != nil {
+//                    print("sleep analysis is nil")
+//                    return
+//                }
+//                if let result = tmpResult {
+//                    // print
+//                    for item in result {
+//                        if let sample = item as? HKCategorySample {
+//                            if (sample.value == HKCategoryValueSleepAnalysis.asleep.rawValue) {
+//                                
+//                                let duration = self.calender.dateComponents([.minute], from: sample.startDate, to: sample.endDate)
+//                                
+////                                print("Healthkit sleep: \(sample.startDate) \(sample.endDate) - duration is: \(duration.minute!)")
+//                                
+//                                totalTime += duration.minute!
+//                            }
+//                        }
+//                    }
+//                    
+//                    print("-----------sleep time:")
+//                    print(totalTime)
+//                }
+//            }
+//            // execute our query
+//            healthStore.execute(query)
+//        } else {
+//            fatalError("Something went wrong retrieving sleep analysis")
+//        }
+//    }
+//
     
-    //why need 2?:
-    func getAverageStepCount(length: Int) {
+    
+    
+//    func getAverageStepCount(length: Int, completionHandler: CompletionHandler) -> Double {
+    func getAverageStepCount(length: Int) -> Double {
+        var total: Double = 0
+        var dailyAVG: Double = 0
         //  Perform the Query
         let endDate = Date()
-        let startDate = NSCalendar.current.date(byAdding: .month, value: length, to: endDate)
-        
-        
+        let startDate = NSCalendar.current.date(byAdding: .day, value: length, to: endDate)!
+
         let stepSampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
         
-        let query = HKSampleQuery(sampleType: stepSampleType!, predicate: predicate, limit: 0, sortDescriptors: nil, resultsHandler: {
+        let query = HKSampleQuery(sampleType: stepSampleType!, predicate: predicate, limit: 10, sortDescriptors: nil, resultsHandler: {
             (query, results, error) in
             if results == nil {
                 print("something went wrong in step count")
+                return
             }
             
             DispatchQueue.main.async() {
-                var total:Double = 0
-                var dailyAVG:Double = 0
+                
                 for steps in results as! [HKQuantitySample]
                 {
                     // add values to dailyAVG
                     total += steps.quantity.doubleValue(for: HKUnit.count())
+                    let aaa = steps.quantity.doubleValue(for: HKUnit.count())
+                    print("------\(aaa)")
                 }
                 dailyAVG = total / Double((results?.count)!)
-                print("average step count: \(dailyAVG)")
+                print("average step count: \(dailyAVG)------\(length)")
             }
         })
         healthStore.execute(query)
+//        completionHandler(true)
+        return dailyAVG
     }
     
+
+//    
+//    
+//    func getTotalStepCount(length: Int) {
+//        //  Perform the Query
+//        if let type = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount) {
+//            
+////            let date = NSDate() as Date
+////            let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+////            let newDate = cal.date(byAdding: .day, value: length, to: date)
+//            
+//            let endDate = Date()
+//            let startDate = NSCalendar.current.date(byAdding: .day, value: length, to: endDate)
+//            var totalStep = Double()
+//            
+//            let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
+//            
+//            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) -> Void in
+//                
+//                if error != nil {
+//                    print("something went wrong in step count")
+//                } else if let quantity = statistics?.sumQuantity() {
+//                    let steps = quantity.doubleValue(for: HKUnit.count())
+//                    
+////                    print ("Steps =  \(steps) steps")
+//                    totalStep = steps
+//                    print("------------steps:")
+//                    print(totalStep)
+//                }
+//            }
+//            healthStore.execute(query)
+//        } else {
+//            fatalError("Something went wrong retrieving step count")
+//        }
+//        
+//        
+//    }
+//    
+//    //why need 2?:
+//    func getAverageStepCount(length: Int) {
+//        //  Perform the Query
+//        let endDate = Date()
+//        let startDate = NSCalendar.current.date(byAdding: .month, value: length, to: endDate)
+//        
+//        
+//        let stepSampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
+//        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
+//        
+//        let query = HKSampleQuery(sampleType: stepSampleType!, predicate: predicate, limit: 0, sortDescriptors: nil, resultsHandler: {
+//            (query, results, error) in
+//            if results == nil {
+//                print("something went wrong in step count")
+//            }
+//            
+//            DispatchQueue.main.async() {
+//                var total:Double = 0
+//                var dailyAVG:Double = 0
+//                for steps in results as! [HKQuantitySample]
+//                {
+//                    // add values to dailyAVG
+//                    total += steps.quantity.doubleValue(for: HKUnit.count())
+//                }
+//                dailyAVG = total / Double((results?.count)!)
+//                print("average step count: \(dailyAVG)")
+//            }
+//        })
+//        healthStore.execute(query)
+//    }
+//    
+//    
     
     
-    func getBloodPressure(length: Int)
-    {
+    func getBloodPressure(length: Int) -> (Double, Double) {
+        var totalSystolic:Double = 0
+        var totalDiastolic:Double = 0
+        var systolicAVG:Double = 0
+        var diastolicAVG:Double = 0
         guard let type = HKQuantityType.correlationType(forIdentifier: HKCorrelationTypeIdentifier.bloodPressure),
             let systolicType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureSystolic),
             let diastolicType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureDiastolic) else {
                 // display error, etc...
                 print("something went wrong in blood pressure")
-                return
+                return (systolicAVG, diastolicAVG)
         }
         
         let endDate = Date()
-        let startDate = NSCalendar.current.date(byAdding: .month, value: length, to: endDate)
+        var startDate = NSCalendar.current.date(byAdding: .day, value: length, to: endDate)!
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
         
         let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: true)
@@ -152,10 +250,6 @@ extension ProfileViewController {
         { (query, results, error ) -> Void in
             
             if let dataList = results as? [HKCorrelation] {
-                var totalSystolic:Double = 0
-                var totalDiastolic:Double = 0
-                var systolicAVG:Double = 0
-                var diastolicAVG:Double = 0
                 for data in dataList
                 {
                     if let data1 = data.objects(for: systolicType).first as? HKQuantitySample,
@@ -166,58 +260,70 @@ extension ProfileViewController {
                         
                         totalSystolic += value1
                         totalDiastolic += value2
-                        
-                        print("blood pressure: \(value1) / \(value2)")
                     }
                 }
                 systolicAVG = totalSystolic / Double(dataList.count)
                 diastolicAVG = totalDiastolic / Double(dataList.count)
-                print("systolic AVG: \(systolicAVG)")
+                print("systolic AVG: \(systolicAVG)------\(length)")
                 print("diastolic AVG: \(diastolicAVG)")
                 
             }
         }
         healthStore.execute(query)
+        return (systolicAVG, diastolicAVG)
     }
     
-    func getAverageHeartRate(length: Int) {
-        //  Perform the Query
-        
-        let endDate = Date()
-        let startDate = NSCalendar.current.date(byAdding: .month, value: length, to: endDate)
-        let heartRateType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
-        
-        //descriptor
-        let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierEndDate, ascending: false)
-        
-        let heartRateQuery = HKSampleQuery(sampleType: heartRateType!, predicate: predicate, limit: 25, sortDescriptors: [sortDescriptor]) { (query, results, error) in
-            
-            if results == nil {
-                print("something went wrong in heart rate")
-            }
-            
-            var total:Double = 0
-            var heartRateAVG:Double = 0
-            for items in results!
-            {
-                guard let currData:HKQuantitySample = items as? HKQuantitySample else { return }
-                
-                total += currData.quantity.doubleValue(for: HKUnit.count().unitDivided(by: HKUnit.second()))
-                print("Heart Rate: \(currData.quantity)")
-                print("Start Date: \(currData.startDate)")
-                print("End Date: \(currData.endDate)")
-                print("---------------------------------\n")
-            }
-            
-            heartRateAVG = total / Double((results?.count)!)
-            print("Heart Rate AVG: \(heartRateAVG)")
-            
-        }
-        healthStore.execute(heartRateQuery)
-    }
+//
+//    
+//    func getBloodPressure(length: Int)
+//    {
+//        guard let type = HKQuantityType.correlationType(forIdentifier: HKCorrelationTypeIdentifier.bloodPressure),
+//            let systolicType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureSystolic),
+//            let diastolicType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureDiastolic) else {
+//                // display error, etc...
+//                print("something went wrong in blood pressure")
+//                return
+//        }
+//        
+//        let endDate = Date()
+//        let startDate = NSCalendar.current.date(byAdding: .day, value: length, to: endDate)
+//        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
+//        
+//        let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: true)
+//        let query = HKSampleQuery(sampleType: type, predicate: predicate, limit: 0, sortDescriptors: [sortDescriptor])
+//        { (query, results, error ) -> Void in
+//            
+//            if let dataList = results as? [HKCorrelation] {
+//                var totalSystolic:Double = 0
+//                var totalDiastolic:Double = 0
+//                var systolicAVG:Double = 0
+//                var diastolicAVG:Double = 0
+//                for data in dataList
+//                {
+//                    if let data1 = data.objects(for: systolicType).first as? HKQuantitySample,
+//                        let data2 = data.objects(for: diastolicType).first as? HKQuantitySample {
+//                        
+//                        let value1 = data1.quantity.doubleValue(for: HKUnit.millimeterOfMercury())
+//                        let value2 = data2.quantity.doubleValue(for: HKUnit.millimeterOfMercury())
+//                        
+//                        totalSystolic += value1
+//                        totalDiastolic += value2
+//                        
+//                        print("blood pressure: \(value1) / \(value2)")
+//                    }
+//                }
+//                systolicAVG = totalSystolic / Double(dataList.count)
+//                diastolicAVG = totalDiastolic / Double(dataList.count)
+//                print("systolic AVG: \(systolicAVG)")
+//                print("diastolic AVG: \(diastolicAVG)")
+//                
+//            }
+//        }
+//        healthStore.execute(query)
+//    }
     
-    func getMenstruation(length: Int) {
+    func getMenstruation() -> Double{
+        var periodBool = 0
         // define the object type
         if let menstruationType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.menstrualFlow) {
             
@@ -225,7 +331,7 @@ extension ProfileViewController {
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
             
             // create uery with a block completion to execute
-            let query = HKSampleQuery(sampleType: menstruationType, predicate: nil, limit: length, sortDescriptors: [sortDescriptor]) { (query, results, error) -> Void in
+            let query = HKSampleQuery(sampleType: menstruationType, predicate: nil, limit: 3, sortDescriptors: [sortDescriptor]) { (query, results, error) -> Void in
                 
                 if error != nil {
                     print("menstruation flow is nil")
@@ -236,6 +342,10 @@ extension ProfileViewController {
                     for item in result {
                         if let sample = item as? HKCategorySample {
                             print("Menstruation: \(sample.startDate)")
+                            
+                            if (sample.startDate <= Calendar.current.date(byAdding: .day, value: -2, to: Date())!) {
+                                periodBool = 1
+                            }
                         }
                     }
                 }
@@ -245,5 +355,40 @@ extension ProfileViewController {
         } else {
             fatalError("Something went wrong retrieving menstruation flow")
         }
+        return Double(periodBool)
+        
     }
+
+//
+//    func getMenstruation(length: Int) {
+//        // define the object type
+//        if let menstruationType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.menstrualFlow) {
+//            
+//            // use a sortDescriptor to get the recent data first
+//            let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+//            
+//            // create uery with a block completion to execute
+//            let query = HKSampleQuery(sampleType: menstruationType, predicate: nil, limit: length, sortDescriptors: [sortDescriptor]) { (query, results, error) -> Void in
+//                
+//                if error != nil {
+//                    print("menstruation flow is nil")
+//                    return
+//                }
+//                if let result = results {
+//                    // print
+//                    for item in result {
+//                        if let sample = item as? HKCategorySample {
+////                            print("Menstruation: \(sample.startDate)")
+//                            print("-------period")
+//                            print(item)
+//                        }
+//                    }
+//                }
+//            }
+//            // execute our query
+//            healthStore.execute(query)
+//        } else {
+//            fatalError("Something went wrong retrieving menstruation flow")
+//        }
+//    }
 }

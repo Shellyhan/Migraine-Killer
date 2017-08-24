@@ -10,22 +10,18 @@ import UIKit
 
 class LogViewController: UIViewController {
     
+    @IBOutlet weak var LogButton: UIButton!
+    
     let healthManager:HealthKitManager = HealthKitManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        LogButton.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
         getHealthKitPermission()
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
+
     func getHealthKitPermission() {
         
         // Seek authorization in HealthKitManager.swift.
@@ -42,17 +38,5 @@ class LogViewController: UIViewController {
             }
         }
     }
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
