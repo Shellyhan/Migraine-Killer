@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1C11B9B11F117F9600164AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE7153C1F0D91410041D292 /* AppDelegate.swift */; };
+		1C2021361F4E2C3D00BD7A17 /* HKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2021341F4E2C3D00BD7A17 /* HKData.swift */; };
+		1C2021371F4E2C3D00BD7A17 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2021351F4E2C3D00BD7A17 /* WeatherData.swift */; };
+		1C20213A1F4E2C4400BD7A17 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2021381F4E2C4400BD7A17 /* ResultViewController.swift */; };
+		1C20213B1F4E2C4400BD7A17 /* UserDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2021391F4E2C4400BD7A17 /* UserDataExtension.swift */; };
 		1C93DF981F0ED2EE000903E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C93DF971F0ED2EE000903E5 /* GoogleService-Info.plist */; };
 		1CB09FD81F22B2CC007B0D24 /* UserLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB09FD71F22B2CC007B0D24 /* UserLog.swift */; };
-		1CB09FDB1F22B3A8007B0D24 /* UserDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB09FDA1F22B3A8007B0D24 /* UserDataExtension.swift */; };
-		1CB09FDD1F22C1A3007B0D24 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB09FDC1F22C1A3007B0D24 /* UserData.swift */; };
 		1CC34B9D1F158DAD00A277C1 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC34B991F158DAD00A277C1 /* AccountViewController.swift */; };
 		1CC34B9E1F158DAD00A277C1 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC34B9A1F158DAD00A277C1 /* HealthKitManager.swift */; };
 		1CC34B9F1F158DAD00A277C1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC34B9B1F158DAD00A277C1 /* ProfileViewController.swift */; };
@@ -42,10 +44,12 @@
 
 /* Begin PBXFileReference section */
 		1ADD59375448CBAC4ACF1763 /* Pods-MigraineKillerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MigraineKillerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MigraineKillerTests/Pods-MigraineKillerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C2021341F4E2C3D00BD7A17 /* HKData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKData.swift; sourceTree = "<group>"; };
+		1C2021351F4E2C3D00BD7A17 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		1C2021381F4E2C4400BD7A17 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		1C2021391F4E2C4400BD7A17 /* UserDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataExtension.swift; sourceTree = "<group>"; };
 		1C93DF971F0ED2EE000903E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "MigraineKiller/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1CB09FD71F22B2CC007B0D24 /* UserLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLog.swift; sourceTree = "<group>"; };
-		1CB09FDA1F22B3A8007B0D24 /* UserDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataExtension.swift; sourceTree = "<group>"; };
-		1CB09FDC1F22C1A3007B0D24 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		1CC34B991F158DAD00A277C1 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		1CC34B9A1F158DAD00A277C1 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		1CC34B9B1F158DAD00A277C1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -93,21 +97,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C20213C1F4E33CC00BD7A17 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1C2021391F4E2C4400BD7A17 /* UserDataExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		1CB09FD61F22ADAF007B0D24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1CB09FDC1F22C1A3007B0D24 /* UserData.swift */,
+				1C2021341F4E2C3D00BD7A17 /* HKData.swift */,
+				1C2021351F4E2C3D00BD7A17 /* WeatherData.swift */,
 				1CB09FD71F22B2CC007B0D24 /* UserLog.swift */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		1CB09FD91F22B354007B0D24 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				1CB09FDA1F22B3A8007B0D24 /* UserDataExtension.swift */,
-			);
-			name = Extensions;
 			sourceTree = "<group>";
 		};
 		1CE715301F0D91410041D292 = {
@@ -134,6 +139,8 @@
 		1CE7153B1F0D91410041D292 /* MigraineKiller */ = {
 			isa = PBXGroup;
 			children = (
+				1C20213C1F4E33CC00BD7A17 /* Extensions */,
+				1C2021381F4E2C4400BD7A17 /* ResultViewController.swift */,
 				1CEFACC11F0EF120008B65E2 /* MigraineKiller.entitlements */,
 				1CE7153C1F0D91410041D292 /* AppDelegate.swift */,
 				1CB09FD61F22ADAF007B0D24 /* Models */,
@@ -143,7 +150,6 @@
 				1CE715481F0D91410041D292 /* Info.plist */,
 				1CFB95D81F102BC6005C6826 /* LoginViewController.swift */,
 				1CC34B991F158DAD00A277C1 /* AccountViewController.swift */,
-				1CB09FD91F22B354007B0D24 /* Extensions */,
 				1CC34B9A1F158DAD00A277C1 /* HealthKitManager.swift */,
 				1CC34B9B1F158DAD00A277C1 /* ProfileViewController.swift */,
 				1CC34B9C1F158DAD00A277C1 /* SettingViewController.swift */,
@@ -394,17 +400,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C20213A1F4E2C4400BD7A17 /* ResultViewController.swift in Sources */,
 				1CFB95D91F102BC6005C6826 /* LoginViewController.swift in Sources */,
 				476848A01F22790100D3ADCC /* defaultsKeys.swift in Sources */,
+				1C2021361F4E2C3D00BD7A17 /* HKData.swift in Sources */,
 				1CC34B9D1F158DAD00A277C1 /* AccountViewController.swift in Sources */,
 				1CB09FD81F22B2CC007B0D24 /* UserLog.swift in Sources */,
 				1CC34B9E1F158DAD00A277C1 /* HealthKitManager.swift in Sources */,
 				1CC34BA01F158DAD00A277C1 /* SettingViewController.swift in Sources */,
-				1CB09FDD1F22C1A3007B0D24 /* UserData.swift in Sources */,
-				1CB09FDB1F22B3A8007B0D24 /* UserDataExtension.swift in Sources */,
 				1CFB95DD1F105970005C6826 /* LogViewController.swift in Sources */,
 				1CC34B9F1F158DAD00A277C1 /* ProfileViewController.swift in Sources */,
+				1C20213B1F4E2C4400BD7A17 /* UserDataExtension.swift in Sources */,
 				1CFB95DF1F105B24005C6826 /* LogInfoViewController.swift in Sources */,
+				1C2021371F4E2C3D00BD7A17 /* WeatherData.swift in Sources */,
 				1CE7153D1F0D91410041D292 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
