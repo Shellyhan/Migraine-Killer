@@ -108,6 +108,45 @@ class LogInfoViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         durationPickerData = [["0", "1 day", "2 days", "3 days", "4 days", "5 days", "6 days"],
                               ["0", "1 hour", "2 hours", "3 hours", "4 hours", "5 hours", "6 hours"],
                               ["5 min", "10 min", "15 min", "20 min", "30 min", "40 min", "50 min"]]
+        
+        
+        // Scroll view with keyboard appears
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            self.view.frame.origin.y -= keyboardSize.height
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            self.view.frame.origin.y += keyboardSize.height
+        }
+    }
+    
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    //MARK: UITextFieldDelegate
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        textField.returnKeyType = UIReturnKeyType.done
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     
@@ -198,5 +237,8 @@ class LogInfoViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         formatter.dateFormat = "yyyy/MM/dd"
         return formatter
     }()
+    
+    
+    
     
 }
