@@ -6,46 +6,48 @@
 ##### Allow patients to keep track of headache symptoms and provide a real time analysis of potential triggers.  
 
 ## Features 
+#### Login/Register Page View
 <div style="float: left;" > 
-<p>Login/Register Page View</p> <p />
 <img src="./MigraineKiller/ReadMeResources/register.png" width="200">
-<img src="./MigraineKiller/ReadMeResources/keyboard.png" width="200">
-
-<p>Log View</p> 
-<p> This is where we obtain patient's subjective information, including: </p>
-<li> Headache pain level </li>
-<li> Headache area </li>
-<li> Stress level </li>
-<li> Emotions </li>
-<li> Food intake </li>
-<li> Other notes </li>
-<p />
-
-<img src="./MigraineKiller/ReadMeResources/log.png" width="200">
-<img src="./MigraineKiller/ReadMeResources/log1.png" width="200">
-<img src="./MigraineKiller/ReadMeResources/log2.png" width="200">
-<img src="./MigraineKiller/ReadMeResources/log3.png" width="200">
-
-<p>Result View</p> <p />
-<img src="./MigraineKiller/ReadMeResources/result.png" width="200">
-
-<p>Account View</p> <p />
-<img src="./MigraineKiller/ReadMeResources/account.png" width="200">
-<img src="./MigraineKiller/ReadMeResources/avatar.png" width="200">
-
+<img src="./MigraineKiller/ReadMeResources/keyboard.png" width="200" hspace="5">
 </div>
 
+#### Log View
+###### This is where we obtain patient's subjective information, including: 
+* Headache pain level 
+* Headache area
+* Stress level 
+* Emotions 
+* Food intake 
+* Other notes 
+<div style="float: left;" >
+<img src="./MigraineKiller/ReadMeResources/log.png" width="200">
+<img src="./MigraineKiller/ReadMeResources/log1.png" width="200" hspace="5">
+<img src="./MigraineKiller/ReadMeResources/log2.png" width="200">
+<img src="./MigraineKiller/ReadMeResources/log3.png" width="200" hspace="5">
+</div>
+
+#### Result View
+<img src="./MigraineKiller/ReadMeResources/result.png" width="200">
+
+#### Account View
+<div style="float: left;" >
+<img src="./MigraineKiller/ReadMeResources/account.png" width="200">
+<img src="./MigraineKiller/ReadMeResources/avatar.png" width="200" hspace="5">
+</div>
+
+
 ## Technical
-##### Health Kit
+#### Health Kit
 ###### We retrieved personal health information from Apple Watch:
 * Blood pressure
 * Exercise (Steps)
 * Sleep Analysis
 * Menstruation
-##### Database
+#### Database
 * Firebase database and authentication 
 * https://firebase.google.com/
-##### Weather API
+#### Weather API
 ###### We also considered environmental aspects including:
 * Temperature
 * Barometric pressure
