@@ -36,8 +36,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             submitButton.setTitle("REGISTER", for: .normal)
         }
     }
-    
-    
+
     @IBAction func submit(_ sender: Any) {
         
         if toggle.selectedSegmentIndex == 1 {
@@ -51,8 +50,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             print("The toggle is set to Login")
         }
     }
-    
-    
+
     
     //-------------
     
@@ -179,8 +177,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             pwdField.delegate = self
 
             firebaseReference = Database.database().reference()
+            
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+            
+            view.addGestureRecognizer(tap)
         }
-        
+    
+    
+        func dismissKeyboard() {
+            view.endEditing(true)
+        }
+    
+    
+
+    
         
         //MARK: UITextFieldDelegate
         
@@ -199,7 +209,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
 
-    
+
     /*
     // MARK: - Navigation
 
