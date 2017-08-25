@@ -15,10 +15,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     var avatarView: UIView!
     
     
-    @IBAction func LogoutButton(_ sender: Any) {
-        handleLogout()
-    }
-    
+
+  
     func handleLogout() {
         
         do {
@@ -39,9 +37,14 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     private var myTableView: UITableView!
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "LOGOUT", style: .plain, target: self, action: #selector(handleLogout))
         
         reload()
+   
+        
+        
         
         
     }
@@ -74,6 +77,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         myTableView.dataSource = self
         myTableView.delegate = self
         self.view.addSubview(myTableView)
+        
+        self.myTableView.tableFooterView = UIView(frame: CGRect.zero)
         
     }
     
@@ -167,6 +172,15 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
+        
+        cell.contentView.isUserInteractionEnabled = false
+        
+        return cell
+    }
+    
+  
     
     
     
@@ -238,6 +252,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         if indexPath.section == 0 {
             cell.isUserInteractionEnabled = false
             if indexPath.row == 0 {
+                // TODO: get email from db
                 cell.textLabel?.text = "Email"
             } else if indexPath.row == 1 {
                 let profile = healthManager.readProfile()
@@ -280,7 +295,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             dateOfBirthDayText = String(describing: dateOfBirth!.day!)
             dateOfBirthMonthText  = String(describing: dateOfBirth!.month!)
             dateOfBirthYearText = String(describing: dateOfBirth!.year!)
-            dateOfBirthText = dateOfBirthDayText + dateOfBirthMonthText + dateOfBirthYearText
+            dateOfBirthText = "\(dateOfBirthDayText) / \(dateOfBirthMonthText) / \(dateOfBirthYearText)"
             
         }
         return dateOfBirthText;
